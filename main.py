@@ -23,8 +23,9 @@ def msgHandler(pa, buf, action):
 def launch(action):
     print('DofLog is on!\nctrl+c to stop')
     buf = Data()
-    sniff(filter='tcp port 5555', lfilter=lambda p: p.haslayer(
-        Raw), prn=lambda p: msgHandler(p, buf, action))
+    sniff(filter='tcp port 5555', 
+          lfilter=lambda p: p.haslayer(Raw), 
+          prn=lambda p: msgHandler(p, buf, action))
     print('\nDofLog has been stopped!')
 
 
